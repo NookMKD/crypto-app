@@ -7,32 +7,11 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { redirect } from "react-router-dom";
-// import * as React from 'react';
 import React from "react";
 import Snackbar from '@mui/material/Snackbar';
-import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import Alert from '@mui/material/Alert';
 import { Avatar } from "@mui/material";
-
-// primary: {
-//     main: '#82dcf4',
-// },
-// secondary: {
-//     main: '#AB003C',
-// },
-// info: {
-//     main: '#0288d1',
-// },
-// error: {
-//     main: '#e2002d',
-// },
-// warning: {
-//     main: '#471372',
-// },
-
 
 
 export default function LoginPrompt() {
@@ -85,8 +64,6 @@ export default function LoginPrompt() {
             </IconButton>
         </React.Fragment>
     );
-
-
 
     return (
         <Container component="main" maxWidth="xs">

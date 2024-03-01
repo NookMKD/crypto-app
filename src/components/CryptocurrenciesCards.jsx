@@ -6,36 +6,22 @@ import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp
 import { Footer } from './AssetPlatformsTable';
 import { Box } from '@mui/material';
 
+
+let data = JSON.parse(localStorage.getItem("data"))
+
+
 export default function CryptocurrenciesCards() {
-    let tableData = [];
-    const [data, setTableData] = useState([]);
+    const [coins, setCoins] = useState(() => []);
+    const [loading, setLoading] = useState(false);
 
     const getCoins = (index) => {
-        // console.log("data od index = ", data[index]);
-        // return data[index];
+        return data[index];
     }
 
     function generateCoins(length, startIndex) {
         return Array.from({ length }).map((_, i) => getCoins(i + startIndex));
     }
 
-    useEffect(() => {
-        fetchData();
-    }, [])
-
-    const fetchData = () => {
-        setLoading(true)
-        tableData = fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=1000&page=1&sparkline=false&locale=en&x_cg_demo_api_key=CG-tv1r3zetrp9kpPuczqfCmRJj")
-            .then((tableData) => tableData.json())
-            .then((tableData) => {
-                setTableData(tableData);
-                setLoading(false);
-            }), []
-    }
-    console.log(tableData);
-
-    const [coins, setCoins] = useState(() => []);
-    const [loading, setLoading] = useState(false);
 
     const loadMore = useCallback(() => {
         setLoading(true)
@@ -54,9 +40,10 @@ export default function CryptocurrenciesCards() {
         window.scrollTo(0, 0)
     }
 
+
     return (
         <Box marginTop={5}>
-            <Box display="flow" alignItems="center" margin={"auto"} justifyContent='center' maxWidth={800}
+            <Box display="flow" alignItems="center" margin={"auto"} maxWidth={800}
             >
                 {coins.map((element, index) => (
                     <CurrCard sx={{ mb: 3 }} display="flex" coinID={index} coinData={data} />
@@ -65,7 +52,7 @@ export default function CryptocurrenciesCards() {
             <Box style={{
                 width: "100%",
                 display: "flex",
-                justifyContent: 'center',
+                // justifyContent: 'center',
             }}
             >
                 <Button
@@ -78,11 +65,10 @@ export default function CryptocurrenciesCards() {
                     }}
                 >
                     <KeyboardDoubleArrowUpIcon
-                        maxWidth="100%"
+
                         fontSize="large"
                         onClick={scrollToTop}
-                        // margin={"auto"}
-                        sx={{ justifyContent: 'center' }}
+
                     >
                     </KeyboardDoubleArrowUpIcon>
                 </Button>

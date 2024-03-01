@@ -3,20 +3,15 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-// import FormControlLabel from "@mui/material/FormControlLabel";
-// import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-// import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { IconButton } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Snackbar from '@mui/material/Snackbar';
-import Alert from '@mui/material/Alert';
-import { Navigate } from "react-router-dom";
 
 const theme = createTheme();
 
@@ -43,12 +38,10 @@ export default function SignUp() {
 
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        // const data = new FormData(event.currentTarget);
         const password = data.get('password');
         const confirmPassword = data.get('confirmPassword')
         const username = data.get("username");
         const email = data.get("signUpEmail");
-        // console.log(password.length);
 
         if (username.length == 0) {
             handleClick(`Username field can't be empty`);

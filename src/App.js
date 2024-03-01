@@ -78,24 +78,20 @@ export default function App() {
   let [signedUp, setSignedUp] = useState(localStorage.getItem("isSignedUp"))
 
   function routUser() {
-    console.log("TEST");
     setLogedIn = localStorage.getItem("isLogedIn");
     if (logedIn) {
       window.location.href = 'home-page'
     } else {
       window.location.href = 'login'
     }
-    console.log(setLogedIn);
   }
 
   // function checkIfLoaded() {
 
   //   let hasLoaded = localStorage.getItem("hasLoaded");
-  //   console.log(hasLoaded);
 
   //   if (!hasLoaded) {
   //     localStorage.setItem("hasLoaded", true);
-  //     console.log(hasLoaded);
   //     routUser();
   //   }
   // }

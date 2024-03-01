@@ -2,8 +2,6 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import { useState, useEffect } from 'react';
-// import data from '../assets/markets.json';
-import tableDataFunc from './TableData';
 
 
 const columns = [
@@ -39,7 +37,6 @@ const columns = [
         disableColumnMenu: true,
         ReadOnly: true
     },
-    // { field: 'id', headerName: 'ID' },
     {
         field: 'symbol', headerName: 'Symbol',
         headerAlign: 'center',
@@ -78,9 +75,6 @@ export default function DataTable() {
             .then((data) => data.json())
             .then((data) => setTableData(data))
     }, [])
-
-    console.log(tableData);
-
 
     localStorage.setItem("data", JSON.stringify(tableData));
 

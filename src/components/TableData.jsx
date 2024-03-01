@@ -9,11 +9,6 @@ export default function tableDataFunc() {
                 .then((data) => data.json())
                 .then((data) => setTableData(data))
         }
-        // setTableData(data;
-        // fetch("https://api.coingecko.com/api/v3/coins/markets/?&x_cg_demo_api_key=CG-tv1r3zetrp9kpPuczqfCmRJj")
-
-        console.log(tableData);
-
     })
     return tableData
 }

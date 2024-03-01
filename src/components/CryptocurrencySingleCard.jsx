@@ -72,7 +72,7 @@ export default function CurrCard({ coinID, coinData }) {
 
 
     return (
-        <Card sx={{ width: '100%', mb: 2 }} margin={'auto'} justifyContent='center'>
+        <Card sx={{ width: '100%', mb: 2 }} margin={'auto'}>
             <CardHeader
                 title={<>
                     <h1 >{data[coinID].name}</h1>
