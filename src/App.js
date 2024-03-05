@@ -1,10 +1,7 @@
 import * as React from 'react';
-import { Navigate, Outlet } from "react-router-dom";
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import DataTable from './components/HomePageTable';
-// import Copyright from './components/Copyright';
 import LogIn from './routes/LogIn';
 import SignUp from './routes/SignUp';
 import { useState } from 'react';
@@ -16,7 +13,6 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ErrorPage from './components/ErrorPage';
-import { localStorageAvailable } from '@mui/x-data-grid/utils/utils';
 import MyWallet from './components/MyWallet';
 import CryptocurrenciesCards from './components/Cryptocurrencies';
 import HomePage from './routes/HomePage';
@@ -75,7 +71,6 @@ let router = createBrowserRouter([
 
 export default function App() {
   let [logedIn, setLogedIn] = useState("isLogedIn")
-  let [signedUp, setSignedUp] = useState(localStorage.getItem("isSignedUp"))
 
   function routUser() {
     setLogedIn = localStorage.getItem("isLogedIn");
@@ -86,26 +81,9 @@ export default function App() {
     }
   }
 
-  // function checkIfLoaded() {
-
-  //   let hasLoaded = localStorage.getItem("hasLoaded");
-
-  //   if (!hasLoaded) {
-  //     localStorage.setItem("hasLoaded", true);
-  //     routUser();
-  //   }
-  // }
-
-  // checkIfLoaded();
-
-  // sx={{ my: 4 }}
   return (
     <Container maxWidth="100%" sx={{}}>
       <Box >
-        {/* <Typography variant="h2" component="h1" sx={{ mx: 0 }} align='center'>
-          NOOK watcher
-          <hr></hr>
-        </Typography> */}
         <RouterProvider router={router} />
       </Box>
     </Container >
