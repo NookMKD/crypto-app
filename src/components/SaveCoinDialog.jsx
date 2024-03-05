@@ -26,14 +26,11 @@ export default function SaveCoinDialog() {
         if (!myCoins) {
             myCoins = [];
         }
-        // if (localStorage.getItem("MyCoins")) {
         myCoins.push(data[coinID])
         if (!JSON.parse(localStorage.getItem("MyCoins")).includes(data[coinID])) {
             localStorage.setItem("MyCoins", JSON.stringify(myCoins))
         }
-        // } else {
-        //     localStorage.setItem("MyCoins", JSON.stringify(myCoins));
-        // }
+
     }
 
     return (
